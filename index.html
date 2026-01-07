@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI IMAGE GENERATOR</title>
+
+    <link rel="stylesheet" href="style.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <div class="logo-wrapper">
+                <div class="logo">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h1>AI IMAGE GENERATOR</h1>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+
+        <section class="prompt-section">
+            <input 
+                type="text"
+                id="promptInput"
+                placeholder="Describe what you want..."
+                readonly
+            />
+            <button id="generateBtn">Generate</button>
+        </section>
+
+        <section class="prompt-actions">
+            <button id="describeBtn">
+                ✨ Describe what you want
+            </button>
+        </section>
+
+        <section class="prompt-options" id="promptOptions">
+            <button data-prompt="sunset">Sunset🌇</button>
+            <button data-prompt="nature">Nature🌿</button>
+            <button data-prompt="dogs">Dog Images🐶</button>
+            <button data-prompt="space">Galaxy🪐</button>
+            <button data-prompt="flower">Flowers🌷</button>
+            <button data-prompt="cafe">Cafe Vibes😉</button>
+            <button data-prompt="season">Autumn🍂</button>
+        </section>
+        <p class="loading" id="loadingText">Generating images...</p>
+        <section class="image-section" id="imageSection"></section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
