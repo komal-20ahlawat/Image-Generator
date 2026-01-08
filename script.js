@@ -64,14 +64,18 @@ sunset: [
 let selectedPromptKey = "";
 
 describeBtn.addEventListener("click", () => {
-    promptOptions.style.display =
-        promptOptions.style.display === "flex" ? "none" : "flex";
+    if (promptOptions.style.display === "flex") {
+    promptOptions.style.display = "none";
+} else {
+    promptOptions.style.display = "flex";
+}
 });
 
 
 promptOptions.addEventListener("click", (e) => {
-    if (!e.target.dataset.prompt) return;
-
+    if (e.target.dataset.prompt === undefined) {
+    return;
+}
     selectedPromptKey = e.target.dataset.prompt;
     promptInput.value = e.target.innerText;
 
@@ -94,14 +98,17 @@ generateBtn.addEventListener("click", () => {
         imageData[selectedPromptKey].forEach((src) => {
             const img = document.createElement("img");
             img.src = src;
-            img.alt = promptInput.value;
             imageSection.appendChild(img);
         });
     }, 1500);
 });
 
 themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+    document.body.classList.remove("dark"); 
+} else {
+    document.body.classList.add("dark");  
+}
 
     const icon = themeToggle.querySelector("i");
     if (document.body.classList.contains("dark")) {
