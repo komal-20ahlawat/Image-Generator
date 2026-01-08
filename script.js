@@ -1,6 +1,3 @@
-// ================================
-// ELEMENTS
-// ================================
 const describeBtn = document.getElementById("describeBtn");
 const promptOptions = document.getElementById("promptOptions");
 const promptInput = document.getElementById("promptInput");
@@ -9,9 +6,7 @@ const imageSection = document.getElementById("imageSection");
 const loadingText = document.getElementById("loadingText");
 const themeToggle = document.getElementById("themeToggle");
 
-// ================================
-// FIXED IMAGE DATA (YOU CAN CHANGE)
-// ================================
+// images stored!
 const imageData = {
 sunset: [
   "https://img.freepik.com/free-photo/sunset-time-tropical-beach-sea-with-coconut-palm-tree_74190-1075.jpg?semt=ais_hybrid&w=740&q=80",
@@ -65,44 +60,34 @@ sunset: [
     ]
 };
 
-// Store selected prompt key
+
 let selectedPromptKey = "";
 
-// ================================
-// SHOW PROMPT SUGGESTIONS
-// ================================
 describeBtn.addEventListener("click", () => {
     promptOptions.style.display =
         promptOptions.style.display === "flex" ? "none" : "flex";
 });
 
-// ================================
-// SELECT PROMPT → FILL INPUT
-// ================================
+
 promptOptions.addEventListener("click", (e) => {
     if (!e.target.dataset.prompt) return;
 
     selectedPromptKey = e.target.dataset.prompt;
     promptInput.value = e.target.innerText;
 
-    // Hide prompt options after selection
     promptOptions.style.display = "none";
 });
 
-// ================================
-// GENERATE IMAGES
-// ================================
+
 generateBtn.addEventListener("click", () => {
     if (!selectedPromptKey) {
         alert("Please describe what you want first ✨");
         return;
     }
 
-    // Reset UI
     imageSection.innerHTML = "";
     loadingText.style.display = "block";
 
-    // Fake AI delay
     setTimeout(() => {
         loadingText.style.display = "none";
 
@@ -115,13 +100,9 @@ generateBtn.addEventListener("click", () => {
     }, 1500);
 });
 
-// ================================
-// THEME TOGGLE (DARK / LIGHT)
-// ================================
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 
-    // Toggle icon
     const icon = themeToggle.querySelector("i");
     if (document.body.classList.contains("dark")) {
         icon.classList.replace("fa-moon", "fa-sun");
